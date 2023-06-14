@@ -13,3 +13,7 @@ output_file = args.output_file
 
 input_extension = os.path.splitext(input_file)[1].lower()
 output_extension = os.path.splitext(output_file)[1].lower()
+
+if input_extension == ".json":
+    with open(input_file, "r") as file:
+        data = json.load(file)
