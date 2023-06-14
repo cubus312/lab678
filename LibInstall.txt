@@ -1,11 +1,4 @@
-#!/bin/bash
-
-apt-get update
-apt-get install -y python3
-
-pip install argparse
-pip install json
-pip install pyyaml
-pip install elementpath
-
-echo "Instalacja zakończona"
+argparse
+pyyaml
+elementpath
+pyinstaller
