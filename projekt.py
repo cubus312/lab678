@@ -17,3 +17,17 @@ output_extension = os.path.splitext(output_file)[1].lower()
 if input_extension == ".json":
     with open(input_file, "r") as file:
         data = json.load(file)
+        
+if input_extension == ".json" and (output_extension == ".xml" or output_extension == ".yaml" or output_extension == ".yml"):
+    root = ET.Element("Data")
+    for key, value in data.items():
+        child = ET.SubElement(root, key)
+        child.text = str(value)
+    tree = ET.ElementTree(root)
+    if output_extension == ".xml":
+        tree.write(output_file)
+        print(f"Dane zapisane do pliku {output_file} w formacie XML.")
+    elif output_extension == ".yaml" or output_extension == ".yml":
+        with open(output_file, "w") as file:
+            yaml.dump(data, file)
+        print(f"Dane zapisane do pliku {output_file} w formacie YAML.")        
