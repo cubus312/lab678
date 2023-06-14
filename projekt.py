@@ -49,3 +49,10 @@ if (input_extension == ".yaml" or input_extension == ".yml") and (output_extensi
         with open(output_file, "w") as file:
             json.dump(data, file, indent=4)
         print(f"Dane zapisane do pliku {output_file} w formacie JSON.")
+        
+if input_extension == ".xml":
+    try:
+        tree = ET.parse(input_file)
+        root = tree.getroot()
+    except ET.ParseError as e:
+        print(f"Błąd w składni pliku XML: {str(e)}")
