@@ -31,3 +31,7 @@ if input_extension == ".json" and (output_extension == ".xml" or output_extensio
         with open(output_file, "w") as file:
             yaml.dump(data, file)
         print(f"Dane zapisane do pliku {output_file} w formacie YAML.")        
+        
+if input_extension == ".yaml" or input_extension == ".yml":
+    with open(input_file, "r") as file:
+        data = yaml.safe_load(file)
