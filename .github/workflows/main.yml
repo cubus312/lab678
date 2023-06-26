@@ -32,8 +32,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: 1.0. ${{ github.run_number }}
-          release_name: Release v1.0.1
+          tag_name: 1.0.${{ github.run_number }}
+          release_name: Release v1.0.${{ github.run_number }}
           body: Release v1.0.1
           overwrite: true
       - name: Upload Release Asset
