@@ -34,8 +34,7 @@ jobs:
         with:
           tag_name: 1.0.${{ github.run_number }}
           release_name: Release v1.0.${{ github.run_number }}
-          body: Release v1.0.1
-          overwrite: true
+          body: Release v1.0.${{ github.run_number }}
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
